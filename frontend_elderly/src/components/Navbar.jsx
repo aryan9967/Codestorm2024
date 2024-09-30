@@ -35,6 +35,11 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li>
+              <NavLink className="nav-link mr-3 text-black" to="/dashboard">
+                DashBoard
+              </NavLink>
+            </li>
+            <li>
               <NavLink className="nav-link mr-3 text-black" to="/wishlist">
                 Wishlist
               </NavLink>
@@ -45,23 +50,23 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink className="nav-link mr-3  text-black" to="/profile">
-                Profile
+              <NavLink className="nav-link mr-3 text-black" to="/caregiver">
+                Care Givers
               </NavLink>
             </li>
             <li>
-              <NavLink className="nav-link mr-3 text-black" to="/dashboard">
-                DashBoard
-              </NavLink>
-            </li>
-            <li>
-              <NavLink className="nav-link mr-3 text-black" to="/education">
-                Education
+              <NavLink className="nav-link mr-3 text-black" to="/doctor">
+                Doctors
               </NavLink>
             </li>
             <li>
               <NavLink className="nav-link mr-3 text-black" to="/community">
-                Community Blogs
+                Community
+              </NavLink>
+            </li>
+            <li>
+              <NavLink className="nav-link mr-3 text-black" to="/connect">
+                Connect
               </NavLink>
             </li>
           </ul>

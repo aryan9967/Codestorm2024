@@ -14,7 +14,9 @@ export default function Chatbot() {
   const loopref = useRef(false);
   const navigate = useNavigate();
   const [chatVisibility, setChatVisibility] = useState(false);
-  const [chatContent, setChatContent] = useState("Hello, I am GrowSmart, your personal farming assistant. How may I assist you?");
+  const [chatContent, setChatContent] = useState(
+    "Hello, I am CareMate, your personal care taking assistant. How may I assist you?"
+  );
   // Update the ref whenever transcript1 changes
   useEffect(() => {
     transcriptRef.current = transcript1;
@@ -38,7 +40,7 @@ export default function Chatbot() {
     });
 
     const textToSpeak =
-      "Hello, I am Grow Smart, your personal assistant. How may I assist you?";
+      "Hello, I am CareMate, your care taking assistant. How may I assist you?";
 
     if (window.location.pathname === "/" && chatStatusref.current) {
       speakText(textToSpeak);
@@ -82,7 +84,7 @@ export default function Chatbot() {
       console.log(accumulatedTranscriptRef.current); // State value might not be updated yet
       if (accumulatedTranscriptRef.current) {
         console.log(accumulatedTranscriptRef.current);
-        setChatContent(accumulatedTranscriptRef.current)
+        setChatContent(accumulatedTranscriptRef.current);
         socket.emit("prompt", accumulatedTranscriptRef.current);
       }
       accumulatedTranscriptRef.current = "";
@@ -113,7 +115,7 @@ export default function Chatbot() {
     });
     console.log(data);
     speakText(data);
-    setChatContent(data)
+    setChatContent(data);
   }
 
   async function add_to_wishlist(product_name) {
@@ -124,7 +126,52 @@ export default function Chatbot() {
     });
     console.log(data);
     speakText(data);
-    setChatContent(data)
+    setChatContent(data);
+  }
+
+  async function book_appointment(req_data) {
+    console.log("appointment data", req_data);
+    const { doctor_id, doctor_name, date, time } = req_data;
+    const { data } = await axios.post("http://localhost:3000/add_appointment", {
+      doctor_id,
+      doctor_name,
+      date,
+      time,
+    });
+    console.log(data);
+    speakText(data.message);
+  }
+
+  async function handle_emergency() {
+    console.log("emergency detected");
+    speakText("Contacted your family member and nearby emergency services");
+  }
+
+  async function add_todo(title) {
+    const { data } = await axios.post("http://localhost:3000/add_todo", {
+      title,
+    });
+    console.log(data);
+    speakText(data.message);
+  }
+
+  async function add_medication(req_data) {
+    console.log("medication data", req_data);
+    const { frequency, medicine_name } = req_data;
+    const { data } = await axios.post("http://localhost:3000/add_medication", {
+      frequency,
+      name: medicine_name,
+    });
+    console.log(data);
+    speakText(data.message);
+  }
+
+  async function hire_caregiver(id){
+    const { data } = await axios.post("http://localhost:3000/hire_caregiver", {
+      care_giver_id : id
+    });
+    console.log(data);
+    speakText(data.message);
   }
 
   useEffect(() => {
@@ -133,20 +180,52 @@ export default function Chatbot() {
 
       const first_index = response.indexOf(`{`);
       const last_index = response.lastIndexOf(`}`);
+      if (first_index > -1 && last_index > -1) {
+        const json_extract = response.slice(first_index, last_index + 1);
+        const response_json = JSON.parse(json_extract);
+        if (
+          response_json.operation &&
+          response_json.operation.toLowerCase() == "appointment"
+        ) {
+          book_appointment(response_json);
+          return;
+        } else if (
+          response_json.operation &&
+          response_json.operation.toLowerCase() == "medication"
+        ) {
+          add_medication(response_json);
+        }
+      }
 
-      if (
-        first_index > -1 &&
-        last_index > -1 &&
-        response.indexOf("JSON") > -1
-      ) {
+      if (first_index > -1 && last_index > -1) {
         const json_extract = response.slice(first_index, last_index + 1);
         const response_json = JSON.parse(json_extract);
         console.log(response_json);
         localStorage.setItem("search_result", JSON.stringify(response_json));
         navigate("/searchresult");
         speakText(response_json.summary);
-        setChatContent(response_json.summary)
+        setChatContent(response_json.summary);
         return;
+      }
+
+      const SOS = "SOS";
+      if (response.indexOf(SOS) > -1) {
+        handle_emergency();
+        return;
+      }
+
+      if (response.toLowerCase().indexOf("add_todo") > -1) {
+        // Slice the ADD_TODO command and get the title
+        const title = response.replace("ADD_TODO", "").trim();
+        console.log(title); // This will give you the remaining part of the response after removing "ADD_TODO"
+        add_todo(title)
+        return
+      }
+
+      if(response.toLowerCase().indexOf("hire") > -1){
+        const care_giver_id = response.replace("HIRE", "").trim();
+        console.log(care_giver_id); // This will give you the remaining part of the response after removing "ADD_TODO"
+        hire_caregiver(care_giver_id)
       }
 
       const parts = response.split(" ");
@@ -178,14 +257,16 @@ export default function Chatbot() {
           wishlistpage: "/wishlist",
           cart: "/cart",
           cartpage: "/cart",
-          profile: "/profile",
-          profilepage: "/profile",
           dashboard: "/dashboard",
           dashboardpage: "/dashboard",
           community: "/community",
           communitypage: "/community",
-          education: "/education",
-          educationpage: "/education",
+          caregiver: "/caregiver",
+          caregiverpage: "/caregiver",
+          doctor: "/doctor",
+          doctorpage: "/doctor",
+          connect: "/connect",
+          connectpage: "/connect",
         };
 
         // Check if the normalized page name exists in the mapping
@@ -196,7 +277,7 @@ export default function Chatbot() {
           speakText("Invalid page name");
         }
       } else {
-        setChatContent(response)
+        setChatContent(response);
         speakText(response);
       }
       startRecognition();
@@ -252,7 +333,7 @@ export default function Chatbot() {
             </svg>
           </button>
 
-          <p>{chatContent? chatContent : null}</p>
+          <p>{chatContent ? chatContent : null}</p>
         </div>
       ) : null}
     </>
