@@ -5,7 +5,7 @@ import { Server } from "socket.io"
 import { AImodel } from "./controllers/geminiAi.js"
 import cors from "cors"
 import bodyParser from "body-parser"
-
+import twilio from 'twilio'
 
 const app = express()
 const httpserver = createServer(app)
@@ -396,7 +396,18 @@ const caregivers = {
 }
 
 const hired_caregiver = {
-    caregiver: []
+    caregiver: [{
+        "id": 1,
+        "image": "https://firebasestorage.googleapis.com/v0/b/minithon-7a420.appspot.com/o/codestorm%2Fcaretaker%2Fcaretaker_profile12.jpg?alt=media&token=2bcedbdd-3e34-423b-a647-4e7ed7d31887",
+        "name": "Emily Davis",
+        "description": "A compassionate nurse experienced in elderly care, focused on providing personalized attention to seniors recovering from surgeries. Emily is dedicated to ensuring a comfortable and smooth recovery process for elderly patients.",
+        "age": 28,
+        "contact": "+91 9819505200",
+        "email": "emily.davis@gmail.com",
+        "experienceDescription": "Emily has 3 years of experience in elderly post-operative care, assisting seniors in regaining mobility and independence after medical procedures.",
+        "experience": "3",
+        "chargesPerDay": "900"
+    }]
 }
 
 function searchbyKeyword(keyword) {
@@ -602,6 +613,23 @@ app.get("/all_products", (req, res) => {
 app.get("/profile", (req, res) => {
     res.status(200).send(profile)
 })
+
+const accountSid = 'ACfec0000147003bd1c3d833be3333254c';
+const authToken = '7f10396dfc57d2bb66b64cd05d2db685';
+const client = twilio(accountSid, authToken);
+
+app.post('/send-message', (req, res) => {
+  const { to = "+919321543686", body = "https://nextjs-zegocloud-uikits1tm.vercel.app/?roomID=1234';" } = req.body;
+
+  client.messages
+    .create({
+      from: 'whatsapp:+14155238886', // Twilio WhatsApp number
+      body,
+      to: `whatsapp:${to}`, // Recipient's WhatsApp number
+    })
+    .then((message) => res.json({ sid: message.sid }))
+    .catch((error) => res.status(500).json({ error: error.message }));
+});
 
 app.get("/cart", (req, res) => {
     res.status(200).send(cart)

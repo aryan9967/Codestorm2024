@@ -2,6 +2,9 @@ import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import "../styles/homepage.css";
 import logo from "../assets/urbanlogo-removebg-preview.png";
+import { Button } from "./ui/button";
+import { Heart, User, Phone } from "lucide-react"
+
 
 const Navbar = () => {
   return (
@@ -72,20 +75,9 @@ const Navbar = () => {
           </ul>
 
           {/* Search Form */}
-          <form className="flex">
-            <input
-              className="form-input rounded-l-md p-2 border"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button
-              className="bg-white text-[#315fb6] px-4 py-2 rounded-r-md border"
-              type="submit"
-            >
-              Search
-            </button>
-          </form>
+        <Button className = "bg-red-400 hover:bg-red-600 px-4">
+          SOS
+        </Button>
         </div>
       </div>
     </nav>
