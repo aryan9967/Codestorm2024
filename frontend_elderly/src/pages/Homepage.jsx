@@ -1,6 +1,6 @@
 import "../styles/homepage.css";
 
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import img1 from "../assets/urbanGardening1.png";
 import img2 from "../assets/urbanGardening2.jpg";
 import img3 from "../assets/urbanGardening3.jpg";
@@ -11,6 +11,7 @@ import ProductCard from "../components/ProductCard";
 import Navbar from "../components/Navbar";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Button } from "@/components/ui/button";
 
 export default function Homepage() {
   const [products, setProducts] = useState(null);
@@ -29,33 +30,61 @@ export default function Homepage() {
     }
   }
 
+  const navigate = useNavigate();
+
   return (
     <div className="main_container">
       <div className="navbar_container">
         <Navbar />
       </div>
+
       <div className="main_screen">
-        <section className="bg-center bg-no-repeat bg-[url('https://t4.ftcdn.net/jpg/06/39/13/91/240_F_639139165_d1c5LSKoQblVUFTKYck2tG0oevX8wYKG.jpg')] bg-gray-500 bg-blend-multiply bg-cover">
-          <div className="px-4 mx-auto max-w-screen-xl text-center  lg:py-56 h-60 ">
-            <h1 className=" text-4xl font-extrabold tracking-tight leading-none mt-0 text-white md:text-5xl lg:text-6xl ">
-              Grow Fresh, Grow Local
+        <div className="mt-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 w-full relative">
+          <div className="flex flex-col justify-center items-center ml-8 mt-8 w-5/6">
+            <h1 className="text-5xl font-bold mb-4">
+              Restoring{" "}
+              <img src='https://nitk-23.vercel.app/static/media/fire.8fb21b7ff600f23e03bb851432d3dada.svg' alt="Fire Icon" className="inline-block" />
+              <br />
+              Connection and Care 
+              <br />
+              with 
+              <br />
+              Caremate
             </h1>
-
-            <p className="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">
-              Join the urban farming revolution and transform your city into a
-              green haven. From rooftops to community gardens, let's cultivate
-              fresh, sustainable produce right where we live
-            </p>
+            <div className="mb-8">
+              <p className="font-bold text-lg mt-2 text-gray-600 w-5/6 text-center  ml-8">
+                Supporting your loved ones with compassionate care and seamless assistance.
+              </p>
+            </div>
+            <div className="flex space-x-4 items-center">
+              <button
+                className="bg-purple-500 text-white rounded-full px-8 py-3 shadow-lg hover:scale-105 transform transition duration-300"
+                onClick={() => navigate("/dashboard")}
+              >
+                <b>Start now</b>
+              </button>
+              <div className="flex items-center space-x-2">
+                <div className="w-8 h-8 bg-white rounded-full border border-gray-300 shadow-md flex justify-center items-center cursor-pointer hover:scale-105 transform transition duration-300">
+                  <div className="ml-1 border-solid border-l-[0.5rem] border-t-[0.25rem] border-b-[0.25rem] border-transparent border-l-blue-900"></div>
+                </div>
+                <p className="font-semibold">How it works</p>
+              </div>
+            </div>
           </div>
-        </section>
-
-        <div className="section_header mb-3">Our Products</div>
-        <div className="grid  grid-cols-2 w-11/12 mx-auto gap-5 md:gap-10 sm:grid-cols-3 md:grid-cols-4">
-          {products?.map((singleprod, index) => (
-            <ProductCard singleprod={singleprod} key={index} />
-          ))}
+          <div className="flex justify-center">
+            <img src='elderImage2.png' alt="Landing Gif" className="w-4/5 h-auto" />
+          </div>
         </div>
-        <Chatbot />
+
+          <div className="section_header mt-8 mb-8">MarketPlace</div>
+          <div className="grid  grid-cols-2 w-11/12 mx-auto gap-5 md:gap-10 sm:grid-cols-3 md:grid-cols-4">
+            {products?.map((singleprod, index) => (
+              <ProductCard singleprod={singleprod} key={index} />
+            ))}
+          </div>
+          <Chatbot />
+        </div>
       </div>
     </div>
   );
