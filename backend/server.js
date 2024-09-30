@@ -1,11 +1,11 @@
 import express, { response } from "express"
 import { createServer } from "http"
 import { Server } from "socket.io"
-import { v4 as uuidV4 } from 'uuid';
+
 import { AImodel } from "./controllers/geminiAi.js"
 import cors from "cors"
 import bodyParser from "body-parser"
-import { stat } from "fs"
+
 
 const app = express()
 const httpserver = createServer(app)
