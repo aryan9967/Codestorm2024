@@ -35,15 +35,19 @@ export default function Homepage() {
         <Navbar />
       </div>
       <div className="main_screen">
-      <section className="bg-center bg-no-repeat bg-[url('https://t4.ftcdn.net/jpg/06/39/13/91/240_F_639139165_d1c5LSKoQblVUFTKYck2tG0oevX8wYKG.jpg')] bg-gray-500 bg-blend-multiply bg-cover">
-    <div className="px-4 mx-auto max-w-screen-xl text-center  lg:py-56 h-60 ">
-        <h1 className=" text-4xl font-extrabold tracking-tight leading-none mt-0 text-white md:text-5xl lg:text-6xl ">Grow Fresh, Grow Local</h1>
-       
-        <p className="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">Join the urban farming revolution and transform your city into a green haven. From rooftops to community gardens, let's cultivate fresh, sustainable produce right where we live</p>
+        <section className="bg-center bg-no-repeat bg-[url('https://t4.ftcdn.net/jpg/06/39/13/91/240_F_639139165_d1c5LSKoQblVUFTKYck2tG0oevX8wYKG.jpg')] bg-gray-500 bg-blend-multiply bg-cover">
+          <div className="px-4 mx-auto max-w-screen-xl text-center  lg:py-56 h-60 ">
+            <h1 className=" text-4xl font-extrabold tracking-tight leading-none mt-0 text-white md:text-5xl lg:text-6xl ">
+              Grow Fresh, Grow Local
+            </h1>
 
-    </div>
-</section>
-
+            <p className="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">
+              Join the urban farming revolution and transform your city into a
+              green haven. From rooftops to community gardens, let's cultivate
+              fresh, sustainable produce right where we live
+            </p>
+          </div>
+        </section>
 
         <div className="section_header mb-3">Our Products</div>
         <div className="grid  grid-cols-2 w-11/12 mx-auto gap-5 md:gap-10 sm:grid-cols-3 md:grid-cols-4">
