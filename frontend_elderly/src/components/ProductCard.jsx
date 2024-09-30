@@ -1,39 +1,45 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar } from "@fortawesome/free-regular-svg-icons";
+import React from 'react';
+import { Star, ShoppingCart, Heart } from 'lucide-react';
 
-export default function ProductCard({ singleprod }) {
+const ProductCard = ({ singleprod }) => {
   return (
-    <div
-      className="card margin_custom shadow-md"
-      style={{ position: "relative" }}
-    >
-      <button className="whislist_btn">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          height="24px"
-          viewBox="0 -960 960 960"
-          width="24px"
-          fill="#EA3323"
-        >
-          <path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z" />
-        </svg>
-      </button>
-      <img src={singleprod.imgUrl} className="card-img-top" alt="..." />
-      <div className="card-body">
-        <h5 className="card-title">{singleprod.name}</h5>
-        <p className="card-text">{singleprod.description}</p>
-        <p className="card-text mb-1">₹ {singleprod.price}</p>
-        <div className="card-text mb-4">
-          <FontAwesomeIcon icon={faStar} /> {singleprod.ratingAverage} (
-          {singleprod.ratingCount} Reviews)
+    <div className="bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
+      <div className="relative">
+        <img 
+          src={singleprod.imgUrl || "/api/placeholder/300/300"} 
+          alt={singleprod.name} 
+          className="w-full h-64 object-cover hover:scale-105 transition duration-200"
+        />
+        <button className="absolute top-3 right-3 p-2 bg-white rounded-full shadow-md hover:bg-red-50 transition-colors duration-300">
+          <Heart className="w-5 h-5 text-red-500" />
+        </button>
+        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+          <h5 className="text-lg font-semibold text-white mb-1">{singleprod.name}</h5>
+          <p className="text-sm text-gray-200 line-clamp-2">{singleprod.description}</p>
         </div>
-        <div className="card-text mb-2">
-          <button className="btn btn-light grey">Add to cart</button>
+      </div>
+      <div className="p-4">
+        <div className="flex justify-between items-center mb-3">
+          <span className="text-2xl font-bold text-indigo-600">₹{singleprod.price}</span>
+          <div className="flex items-center">
+            <Star className="w-5 h-5 text-yellow-400 mr-1" />
+            <span className="text-sm font-medium text-gray-600">
+              {singleprod.ratingAverage} ({singleprod.ratingCount})
+            </span>
+          </div>
         </div>
-        <div className="card-text">
-          <button className="btn btn-primary">Buy Now</button>
+        <div className="grid grid-cols-2 gap-2">
+          <button className="flex items-center justify-center  py-1 bg-gray-200 text-gray-800 rounded-full hover:bg-gray-300 transition-colors duration-300">
+            
+            Add to cart
+          </button>
+          <button className=" bg-purple-500 text-white rounded-full hover:bg-purple-700 transition-colors duration-300 text-sm">
+            Buy Now
+          </button>
         </div>
       </div>
     </div>
   );
-}
+};
+
+export default ProductCard;
