@@ -460,18 +460,21 @@ Users can search for products, doctors, and caregivers. When the user searches f
 for products: 
 {
   "data-type": "JSON",
+  "category": "products",
   "search_result": [{product1}, {product2}, ...],
   "summary": ""
 }
   for caregivers: 
   {
   "data-type": "JSON",
+  "category": "caregivers",
   "search_result": [{caregiver1}, {caregiver2}, ...],
   "summary": ""
 }
   for doctors: 
   {
   "data-type": "JSON",
+  "category": "doctors",
   "search_result": [{doctor1}, {doctor2}, ...],
   "summary": ""
 }
