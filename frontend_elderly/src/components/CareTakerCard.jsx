@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Mail, Phone, DollarSign, BriefcaseIcon, Heart } from 'lucide-react';
-import caretakerprofile1 from '../assets/caretaker_profile2.jpg'
+import caretakerprofile1 from '../assets/caretaker_profile12.jpg'
 
 export default function CareTakerCard({ caretaker }) {
     const [isLiked, setIsLiked] = useState(false);
@@ -9,13 +9,7 @@ export default function CareTakerCard({ caretaker }) {
         <div className="w-full sm:w-[350px] md:w-[380px] lg:w-[400px] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white transform hover:-translate-y-0.5 hover:scale-102 transition-transform duration-300 min-h-[450px] flex flex-col justify-between">
             <div>
                 <div className="relative">
-                    <img className="w-full h-56 object-cover" src={caretakerprofile1} alt={caretaker?.name} />
-                    <button
-                        onClick={() => setIsLiked(!isLiked)}
-                        className="absolute top-2 right-2 p-2 bg-white rounded-full shadow-md hover:shadow-lg transition-shadow duration-300"
-                    >
-                        <Heart className={`w-5 h-5 ${isLiked ? 'text-red-500 fill-current' : 'text-gray-400'}`} />
-                    </button>
+                    <img className="w-full h-56 object-cover" src={caretaker?.image} alt={caretaker?.name} />
                 </div>
                 <div className="px-4 pt-3">
                     <div className="font-bold text-base mb-2">{caretaker?.name}</div>

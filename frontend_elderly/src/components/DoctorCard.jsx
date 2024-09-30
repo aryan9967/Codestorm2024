@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Phone, Calendar, Mail } from 'lucide-react';
-import doctor_profile1 from '../assets/doctor_profile5.jpg';
+import doctor_profile1 from '../assets/doctor_profile14.jpg';
 
 const DoctorProfileCard = ({ doctors }) => {
     const [isLiked, setIsLiked] = useState(false);
@@ -9,7 +9,7 @@ const DoctorProfileCard = ({ doctors }) => {
         <div className="w-full sm:w-[350px] md:w-[380px] lg:w-[400px] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white transform hover:-translate-y-0.5 hover:scale-102 transition-transform duration-300 min-h-[450px] flex flex-col justify-between">
             <div>
                 <div className="relative">
-                    <img className="w-full h-56 object-cover rounded-t-lg" src={doctor_profile1} alt={doctors?.name} />
+                    <img className="w-full h-56 object-cover rounded-t-lg" src={doctors?.image} alt={doctors?.name} />
                     {/* Heart icon can be added here if needed for a favorite feature */}
                 </div>
                 <div className="px-4 pt-3">
