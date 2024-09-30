@@ -1,6 +1,7 @@
 import express, { response } from "express"
 import { createServer } from "http"
 import { Server } from "socket.io"
+import { v4 as uuidV4 } from 'uuid';
 import { AImodel } from "./controllers/geminiAi.js"
 import cors from "cors"
 import bodyParser from "body-parser"
@@ -721,6 +722,7 @@ app.post("/add_appointment", (req, res) => {
     res.status(200).send({ status: true, message: `Your appointment added successfully with ${doctor_name} on ${date} at ${time}` })
     console.log(upcoming_appointments)
 })
+
 
 
 httpserver.listen(3000, () => {

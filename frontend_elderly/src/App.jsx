@@ -11,14 +11,19 @@ import DashBoard from "./pages/Dashboard";
 import Community from "./pages/Community";
 import Education from "./pages/Education";
 import AuthPage from "./pages/AuthPage";
+
 import Caregiver from "./pages/Caregiver";
 import Doctor from "./pages/Doctor";
 import CallPage from "./pages/CallPage";
+
+
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<Homepage />} />
+      <Route path="/caretaker" element={<CareTaker />} />
+      <Route path="/doctors" element={<Doctors />} />
       <Route path="/wishlist" element={<Wishlist />}></Route>
       {/* <Route path="/profile" element={<Profile />}></Route> */}
       <Route path="/cart" element={<Cart />}></Route>
