@@ -209,93 +209,113 @@ const doctor = {
     "doctor": [
         {
             "id": 1,
-            "image": "https://via.placeholder.com/150",
+            "image": "https://firebasestorage.googleapis.com/v0/b/minithon-7a420.appspot.com/o/codestorm%2Fdoctors%2Fdoctor_profile10.jpg?alt=media&token=c13a4634-419d-4727-9168-4ce175cdd1c6",
             "name": "Dr. Ashley Thompson",
-            "description": "A compassionate pediatrician with over 10 years of experience. Dr. Thompson is dedicated to providing comprehensive care for children and ensuring their physical and emotional well-being.",
-            "specialty": "Pediatrician",
+            "description": "A compassionate geriatrician with over 10 years of experience. Dr. Thompson is dedicated to providing comprehensive care for elderly patients and ensuring their physical and emotional well-being.",
+            "specialty": "Geriatrician",
             "contact": "+91 9819505196",
-            "email": "ashley.thompson@gmail.com"
+            "email": "ashley.thompson@gmail.com",
+            "experience": "10",
+            "chargesPerDay": "1200"
         },
         {
             "id": 2,
-            "image": "https://via.placeholder.com/150",
+            "image": "https://firebasestorage.googleapis.com/v0/b/minithon-7a420.appspot.com/o/codestorm%2Fdoctors%2Fdoctor_profile6.jpg?alt=media&token=8c3c519a-541b-4866-9a6a-b4d431c10e5d",
             "name": "Dr. John Smith",
-            "description": "An experienced cardiologist who specializes in diagnosing and treating heart conditions. Dr. Smith is known for his patient-focused approach and advanced cardiac care techniques.",
+            "description": "An experienced cardiologist specializing in heart conditions prevalent in older adults. Dr. Smith is known for his patient-focused approach and advanced cardiac care techniques.",
             "specialty": "Cardiologist",
             "contact": "+91 9819505197",
-            "email": "john.smith@gmail.com"
+            "email": "john.smith@gmail.com",
+            "experience": "12",
+            "chargesPerDay": "1500"
         },
         {
             "id": 3,
-            "image": "https://via.placeholder.com/150",
+            "image": "https://firebasestorage.googleapis.com/v0/b/minithon-7a420.appspot.com/o/codestorm%2Fdoctors%2Fdoctor_profile12.jpg?alt=media&token=a295e6c9-98d6-4836-be58-526226123aa6",
             "name": "Dr. Sarah Johnson",
-            "description": "Dr. Johnson is a leading neurologist with expertise in treating complex neurological disorders, including epilepsy and Parkinson's disease. She is known for her innovative treatment methods.",
+            "description": "Dr. Johnson is a leading neurologist with expertise in treating neurological disorders common in elderly individuals, including dementia and Alzheimer's disease.",
             "specialty": "Neurologist",
             "contact": "+91 9819505198",
-            "email": "sarah.johnson@gmail.com"
+            "email": "sarah.johnson@gmail.com",
+            "experience": "8",
+            "chargesPerDay": "1400"
         },
         {
             "id": 4,
-            "image": "https://via.placeholder.com/150",
+            "image": "https://firebasestorage.googleapis.com/v0/b/minithon-7a420.appspot.com/o/codestorm%2Fdoctors%2Fdoctor_profile5.jpg?alt=media&token=551c0887-86f4-4be0-a773-6501561221b0",
             "name": "Dr. Robert Brown",
-            "description": "A well-respected orthopedic surgeon specializing in joint replacement and minimally invasive surgical techniques. Dr. Brown has over 15 years of experience helping patients recover from injuries.",
+            "description": "A well-respected orthopedic surgeon specializing in joint replacement for older adults. Dr. Brown has over 15 years of experience helping patients recover from injuries and surgeries.",
             "specialty": "Orthopedic Surgeon",
             "contact": "+91 9819505199",
-            "email": "robert.brown@gmail.com"
+            "email": "robert.brown@gmail.com",
+            "experience": "15",
+            "chargesPerDay": "2000"
         },
         {
             "id": 5,
-            "image": "https://via.placeholder.com/150",
+            "image": "https://firebasestorage.googleapis.com/v0/b/minithon-7a420.appspot.com/o/codestorm%2Fdoctors%2Fdoctor_profile13.jpg?alt=media&token=3a3abb01-23e6-43f6-ace7-7c32098ee457",
             "name": "Dr. Emily Davis",
-            "description": "With a background in internal medicine, Dr. Davis provides primary care and chronic disease management. She focuses on personalized treatment plans and preventive healthcare.",
+            "description": "With a background in internal medicine, Dr. Davis provides primary care for elderly patients, focusing on chronic disease management and preventive healthcare.",
             "specialty": "Internal Medicine",
             "contact": "+91 9819505200",
-            "email": "emily.davis@gmail.com"
+            "email": "emily.davis@gmail.com",
+            "experience": "10",
+            "chargesPerDay": "1100"
         },
         {
             "id": 6,
-            "image": "https://via.placeholder.com/150",
+            "image": "https://firebasestorage.googleapis.com/v0/b/minithon-7a420.appspot.com/o/codestorm%2Fdoctors%2Fdoctor_profile3.jpg?alt=media&token=f761991b-b9f9-4ff1-8f79-1c374b5bbb3c",
             "name": "Dr. Michael Wilson",
-            "description": "A well-known pediatrician, Dr. Wilson has extensive experience in child health care, ranging from routine checkups to the treatment of childhood diseases.",
-            "specialty": "Pediatrician",
+            "description": "A dedicated caregiver focusing on geriatric health education and wellness, Dr. Wilson works closely with elderly patients to improve their quality of life.",
+            "specialty": "Geriatric Care",
             "contact": "+91 9819505201",
-            "email": "michael.wilson@gmail.com"
+            "email": "michael.wilson@gmail.com",
+            "experience": "7",
+            "chargesPerDay": "1300"
         },
         {
             "id": 7,
-            "image": "https://via.placeholder.com/150",
+            "image": "https://firebasestorage.googleapis.com/v0/b/minithon-7a420.appspot.com/o/codestorm%2Fdoctors%2Fdoctor_profile11.jpg?alt=media&token=e8a16164-a30b-4528-b050-7881f10ae216",
             "name": "Dr. Jessica Taylor",
-            "description": "Dr. Taylor is a renowned dermatologist specializing in treating skin disorders and performing cosmetic dermatology procedures. She is highly regarded for her patient-centered care.",
+            "description": "Dr. Taylor specializes in dermatology for elderly patients, focusing on skin conditions that affect older adults and cosmetic dermatology procedures.",
             "specialty": "Dermatologist",
             "contact": "+91 9819505202",
-            "email": "jessica.taylor@gmail.com"
+            "email": "jessica.taylor@gmail.com",
+            "experience": "6",
+            "chargesPerDay": "1200"
         },
         {
             "id": 8,
-            "image": "https://via.placeholder.com/150",
+            "image": "https://firebasestorage.googleapis.com/v0/b/minithon-7a420.appspot.com/o/codestorm%2Fdoctors%2Fdoctor_profile8.jpg?alt=media&token=81589dcd-dc48-4dac-bd57-15afe5fb0531",
             "name": "Dr. David Anderson",
-            "description": "A leading expert in emergency medicine, Dr. Anderson is known for his ability to handle critical care situations with precision and care. He has over 20 years of experience.",
+            "description": "A leading expert in emergency medicine, Dr. Anderson is known for his ability to handle critical care situations with precision, especially in older patients.",
             "specialty": "Emergency Medicine",
             "contact": "+91 9819505203",
-            "email": "david.anderson@gmail.com"
+            "email": "david.anderson@gmail.com",
+            "experience": "20",
+            "chargesPerDay": "2200"
         },
         {
             "id": 9,
-            "image": "https://via.placeholder.com/150",
+            "image": "https://firebasestorage.googleapis.com/v0/b/minithon-7a420.appspot.com/o/codestorm%2Fdoctors%2Fdoctor_profile14.jpg?alt=media&token=8df5d5dc-49fa-416d-bab1-97b1f80d1e49",
             "name": "Dr. Linda Martinez",
-            "description": "Dr. Martinez is an expert gynecologist, offering both preventive and curative care. She specializes in women’s health and has a particular focus on reproductive health issues.",
+            "description": "Dr. Martinez is an expert gynecologist specializing in women’s health, particularly focusing on issues faced by older women.",
             "specialty": "Gynecologist",
             "contact": "+91 9819505204",
-            "email": "linda.martinez@gmail.com"
+            "email": "linda.martinez@gmail.com",
+            "experience": "10",
+            "chargesPerDay": "1500"
         },
         {
             "id": 10,
-            "image": "https://via.placeholder.com/150",
+            "image": "https://firebasestorage.googleapis.com/v0/b/minithon-7a420.appspot.com/o/codestorm%2Fdoctors%2Fdoctor_profile7.jpg?alt=media&token=4851c25d-1ebe-4a70-9783-b6480da6b49a",
             "name": "Dr. Thomas Garcia",
-            "description": "A highly experienced endocrinologist, Dr. Garcia is known for his work in managing diabetes and hormonal disorders. He is dedicated to providing personalized care for his patients.",
+            "description": "A highly experienced endocrinologist, Dr. Garcia specializes in managing hormonal disorders prevalent in older adults, providing personalized care.",
             "specialty": "Endocrinologist",
             "contact": "+91 9819505205",
-            "email": "thomas.garcia@gmail.com"
+            "email": "thomas.garcia@gmail.com",
+            "experience": "12",
+            "chargesPerDay": "1800"
         }
     ]
 }
@@ -305,11 +325,11 @@ const caregivers = {
         "id": 1,
         "image": "https://firebasestorage.googleapis.com/v0/b/minithon-7a420.appspot.com/o/codestorm%2Fcaretaker%2Fcaretaker_profile12.jpg?alt=media&token=2bcedbdd-3e34-423b-a647-4e7ed7d31887",
         "name": "Emily Davis",
-        "description": "A passionate nurse experienced in post-operative care, providing critical support to patients recovering from surgery. My focus is on ensuring a smooth recovery process through personalized care and attention.",
+        "description": "A compassionate nurse experienced in elderly care, focused on providing personalized attention to seniors recovering from surgeries. Emily is dedicated to ensuring a comfortable and smooth recovery process for elderly patients.",
         "age": 28,
         "contact": "+91 9819505200",
         "email": "emily.davis@gmail.com",
-        "experienceDescription": "Emily has 3 years of experience in post-operative nursing, helping patients recover swiftly and safely while providing compassionate care.",
+        "experienceDescription": "Emily has 3 years of experience in elderly post-operative care, assisting seniors in regaining mobility and independence after medical procedures.",
         "experience": "3",
         "chargesPerDay": "900"
     },
@@ -317,11 +337,11 @@ const caregivers = {
         "id": 2,
         "image": "https://firebasestorage.googleapis.com/v0/b/minithon-7a420.appspot.com/o/codestorm%2Fcaretaker%2Fcaretaker_profile7.jpg?alt=media&token=a9fc72b6-b980-481f-906c-4cd8ae14e7d7",
         "name": "Michael Wilson",
-        "description": "A dedicated caregiver focusing on pediatric health education and wellness. I work closely with families to create a supportive environment for children's health and growth.",
+        "description": "A dedicated caregiver focusing on elderly health education and wellness. Michael works closely with families to create a supportive environment for the physical and emotional well-being of elderly patients.",
         "age": 38,
         "contact": "+91 9819505201",
         "email": "michael.wilson@gmail.com",
-        "experienceDescription": "With 7 years of experience in pediatric health, Michael has developed extensive expertise in educating families and promoting healthy lifestyles for children.",
+        "experienceDescription": "With 7 years of experience in elderly care, Michael has developed extensive expertise in promoting healthy lifestyles and supporting seniors with chronic conditions.",
         "experience": "7",
         "chargesPerDay": "1300"
     },
@@ -329,11 +349,11 @@ const caregivers = {
         "id": 3,
         "image": "https://firebasestorage.googleapis.com/v0/b/minithon-7a420.appspot.com/o/codestorm%2Fcaretaker%2Fcaretaker_profile2.jpg?alt=media&token=6d90025a-fcea-40c3-89fa-f5c7cad83938",
         "name": "Jessica Taylor",
-        "description": "A compassionate caregiver with experience in rehabilitation and physical therapy. I focus on helping clients regain their independence through customized recovery plans.",
+        "description": "An experienced caregiver specializing in elderly rehabilitation and physical therapy. Jessica focuses on helping elderly clients regain independence through customized recovery plans.",
         "age": 30,
         "contact": "+91 9819505202",
         "email": "jessica.taylor@gmail.com",
-        "experienceDescription": "Jessica has 5 years of experience in rehabilitation services, helping clients recover from injuries and surgeries with personalized therapy plans.",
+        "experienceDescription": "Jessica has 5 years of experience in elderly rehabilitation, helping seniors recover from injuries and surgeries while maintaining their physical strength.",
         "experience": "5",
         "chargesPerDay": "1000"
     },
@@ -341,11 +361,11 @@ const caregivers = {
         "id": 4,
         "image": "https://firebasestorage.googleapis.com/v0/b/minithon-7a420.appspot.com/o/codestorm%2Fcaretaker%2Fcaretaker_profile6.jpg?alt=media&token=286de518-1674-4ff0-a00d-5f2a781fc5b5",
         "name": "David Anderson",
-        "description": "An expert in critical care and emergency nursing, dedicated to providing the highest level of care to patients in life-threatening situations.",
+        "description": "A skilled nurse with a strong background in critical care for elderly patients, David is dedicated to providing the highest level of care in emergencies and life-threatening situations.",
         "age": 50,
         "contact": "+91 9819505203",
         "email": "david.anderson@gmail.com",
-        "experienceDescription": "With 12 years of experience in emergency care, David has a proven track record of successfully managing critical health situations and stabilizing patients.",
+        "experienceDescription": "David has 12 years of experience in emergency care for the elderly, successfully managing critical health situations and ensuring fast recovery.",
         "experience": "12",
         "chargesPerDay": "2200"
     },
@@ -353,11 +373,11 @@ const caregivers = {
         "id": 5,
         "image": "https://firebasestorage.googleapis.com/v0/b/minithon-7a420.appspot.com/o/codestorm%2Fcaretaker%2Fcaretaker_profile4.jpg?alt=media&token=6e7be363-7c05-4d5e-9d66-628bb7612c30",
         "name": "Ashley Thompson",
-        "description": "An experienced pediatrician dedicated to providing comprehensive care for children. With a focus on preventative health, I ensure that each child receives personalized attention tailored to their unique needs.",
+        "description": "A compassionate physician specializing in geriatrics, Dr. Thompson provides personalized healthcare plans for elderly patients, ensuring they receive the best possible care.",
         "age": 33,
         "contact": "+91 9819505196",
         "email": "ashley.thompson@gmail.com",
-        "experienceDescription": "With over 4 years of experience in pediatric care, Dr. Ashley has become a trusted name for many families.",
+        "experienceDescription": "With over 4 years of experience in geriatrics, Dr. Ashley has earned the trust of elderly patients for her dedicated approach and care.",
         "experience": "4",
         "chargesPerDay": "1100"
     },
@@ -365,18 +385,18 @@ const caregivers = {
         "id": 6,
         "image": "https://firebasestorage.googleapis.com/v0/b/minithon-7a420.appspot.com/o/codestorm%2Fcaretaker%2Fcaretaker_profile9.jpg?alt=media&token=e29cf49b-3999-45da-a44e-d4c506439f3d",
         "name": "Nurse John Smith",
-        "description": "A skilled nurse specializing in elder care, with a compassionate approach to daily health management. I am committed to improving the quality of life for my clients by providing attentive and personalized care.",
+        "description": "A highly skilled nurse specializing in geriatric nursing, John is committed to providing elderly patients with the highest quality of life by offering attentive, personalized care.",
         "age": 40,
         "contact": "+91 9819505197",
         "email": "john.smith@gmail.com",
-        "experienceDescription": "John has over 8 years of experience in geriatric nursing, managing chronic illnesses and providing emotional support to patients and their families.",
+        "experienceDescription": "John has 8 years of experience in elder care, managing chronic conditions and offering emotional support to both patients and their families.",
         "experience": "8",
         "chargesPerDay": "1500"
-    },]
+    }]
 }
 
 const hired_caregiver = {
-    caregiver : []
+    caregiver: []
 }
 
 function searchbyKeyword(keyword) {
@@ -668,6 +688,11 @@ app.get("/care_giver", (req, res) => {
     res.status(200).send(caregivers)
 })
 
+app.get("/hired_care_givers", (req, res) => {
+    console.log("hired car giver")
+    res.status(200).send(hired_caregiver)
+})
+
 app.get("/doctor", (req, res) => {
     console.log("doctor")
     res.status(200).send(doctor)
@@ -678,10 +703,10 @@ app.post("/add_todo", (req, res) => {
     let id = todo.todo.length + 1
     todo.todo.push({ id, title: req.body.title, status: false })
     console.log("todo added successfully", todo)
-    res.status(200).send({ status: true, message: `${req.body.title} added successfull in your to do`  })
+    res.status(200).send({ status: true, message: `${req.body.title} added successfull in your to do` })
 })
 
-app.post("/hire_caregiver", (req, res)=>{
+app.post("/hire_caregiver", (req, res) => {
     console.log("Hiring caregiver", req.body.care_giver_id)
     const id = req.body.care_giver_id
     const caregiver = caregivers.caregiver.find(caregiver => caregiver.id === id);
@@ -699,16 +724,16 @@ app.post("/hire_caregiver", (req, res)=>{
 app.post("/add_medication", (req, res) => {
     console.log("adding medication", req.body)
     let reminder_time1 = "10 AM"
-    let reminder_time2 = "10 PM" 
+    let reminder_time2 = "10 PM"
     let id = medication.medication.length + 1
     const { name, frequency } = req.body
-    if(frequency == 1){
-        medication.medication.push({ id, name, reminder_time1, reminder_time2:false,  frequency })
+    if (frequency == 1) {
+        medication.medication.push({ id, name, reminder_time1, reminder_time2: false, frequency })
     }
-    else{
+    else {
         medication.medication.push({ id, name, reminder_time1, reminder_time2, frequency })
     }
-    
+
     console.log("medication added successfully", medication)
     res.status(200).send({ status: true, message: "medication added successfully" })
 })
