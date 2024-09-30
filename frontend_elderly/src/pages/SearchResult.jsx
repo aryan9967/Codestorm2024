@@ -6,6 +6,7 @@ import SearchResultCard from "../components/SearchResultCard";
 import CareTakerCard from "@/components/CareTakerCard";
 import DoctorProfileCard from "@/components/DoctorCard";
 import { useSearchResult } from "@/context/SearchContext";
+import ProductCard from "@/components/ProductCard";
 
 export default function Cart() {
   const { searchResult } = useSearchResult()
@@ -77,12 +78,14 @@ export default function Cart() {
           </>
         ) : (
           <>
-            <div className="section_header">Products Found ({searchResult?.length})</div>
-            <div className="search_result_container">
-              {searchResult?.search_result?.map((single_item, index) => (
-                <SearchResultCard product={single_item} key={index} />
-              ))}
 
+            <div className="">
+              <div className="section_header">Products Found ({searchResult?.search_result?.length})</div>
+              <div className="search_result_container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 px-4 py-6">
+                {searchResult?.search_result?.map((single_item, index) => (
+                  <ProductCard singleprod={single_item} key={index} />
+                ))}
+              </div>
             </div>
           </>
         )

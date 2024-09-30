@@ -1,6 +1,9 @@
 import Chatbot from "@/components/Chatbot";
 import Navbar from "@/components/Navbar";
 import { Card, CardTitle, CardContent } from "@/components/ui/card";
+import TawkToChat from "./Chat";
+import RumbleTalkChat from "./Chat";
+import { Users } from "lucide-react";
 
 const blogs = [
     {
@@ -40,10 +43,10 @@ export default function Community() {
         <div className="min-h-screen flex flex-col bg-gray-50">
             <Navbar />
             <div className="flex-1 p-4 md:p-8">
-                <h1 className="text-2xl font-bold mb-4 text-center">Farming Community Resources</h1>
+                {/* <h1 className="text-2xl font-bold mb-4 text-center">Farming Community Resources</h1>
                 <p className="text-base mb-6 text-center text-gray-700">
                     Welcome to our community page! Here, you can find a curated selection of blogs and resources aimed at helping you thrive as a farmer.
-                    Explore a wide range of topics, from sustainable practices and soil health to financial planning and pest management. 
+                    Explore a wide range of topics, from sustainable practices and soil health to financial planning and pest management.
                     These resources are designed to provide you with the knowledge and tools you need to enhance your farming operations and ensure a successful yield.
                 </p>
 
@@ -56,6 +59,17 @@ export default function Community() {
                             </CardContent>
                         </Card>
                     ))}
+                </div> */}
+                <div className="flex items-center justify-center py-6 px-4 bg-white border-b border-gray-200">
+                    <Users className="text-blue-600 mr-3" size={28} />
+                    <h1 className="text-2xl font-bold text-gray-800">
+                        Welcome to <span className="text-blue-600">{"Our Community"}</span>
+                    </h1>
+                </div>
+
+                <div>
+                    {/* <h1>Welcome to Elderly Community Chat</h1> */}
+                    <RumbleTalkChat />
                 </div>
 
                 <div className="mt-8">
