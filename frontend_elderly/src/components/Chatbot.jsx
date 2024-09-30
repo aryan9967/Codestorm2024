@@ -173,7 +173,7 @@ export default function Chatbot() {
       care_giver_id: id,
     });
     console.log(data);
-    speakText(data.message);
+    speakText(data);
   }
 
   useEffect(() => {
@@ -226,9 +226,12 @@ export default function Chatbot() {
       }
 
       if (response.toLowerCase().indexOf("hire") > -1) {
-        const care_giver_id = response.replace("HIRE", "").trim();
+        const lower_case_response = response.toLowerCase()
+        console.log(lower_case_response)
+        const care_giver_id = lower_case_response.replace("hire", "").trim();
         console.log(care_giver_id); // This will give you the remaining part of the response after removing "ADD_TODO"
-        hire_caregiver(care_giver_id);
+        hire_caregiver(care_giver_id)
+        return
       }
 
       const parts = response.split(" ");

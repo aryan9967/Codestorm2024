@@ -5,15 +5,18 @@ import "./index.css";
 import { BrowserRouter } from "react-router-dom";
 import { ChatbotProvider } from "./context/ChatbotContext.jsx";
 import { SearchProvider } from "./context/SearchContext.jsx";
+import { LanguageProvider } from "./context/LanguaugeContext.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <SearchProvider>
-      <BrowserRouter>
-        <ChatbotProvider>
-          <App />
-        </ChatbotProvider>
-      </BrowserRouter>
+      {/* <LanguageProvider> */}
+        <BrowserRouter>
+          <ChatbotProvider>
+            <App />
+          </ChatbotProvider>
+        </BrowserRouter>
+      {/* </LanguageProvider> */}
     </SearchProvider>
   </StrictMode>
 );
