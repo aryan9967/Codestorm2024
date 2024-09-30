@@ -4,6 +4,7 @@ import { speakText } from "../speech";
 import AIicon from "../../public/Animation - 1723745985736.webm";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useSearchResult } from "@/context/SearchContext";
 
 export default function Chatbot() {
   const [transcript1, setTranscript] = useState(null);
@@ -14,6 +15,7 @@ export default function Chatbot() {
   const loopref = useRef(false);
   const navigate = useNavigate();
   const [chatVisibility, setChatVisibility] = useState(false);
+  const { storeSearchResult } = useSearchResult();
   const [chatContent, setChatContent] = useState(
     "Hello, I am CareMate, your personal care taking assistant. How may I assist you?"
   );
@@ -166,9 +168,9 @@ export default function Chatbot() {
     speakText(data.message);
   }
 
-  async function hire_caregiver(id){
+  async function hire_caregiver(id) {
     const { data } = await axios.post("http://localhost:3000/hire_caregiver", {
-      care_giver_id : id
+      care_giver_id: id,
     });
     console.log(data);
     speakText(data.message);
@@ -202,6 +204,7 @@ export default function Chatbot() {
         const response_json = JSON.parse(json_extract);
         console.log(response_json);
         localStorage.setItem("search_result", JSON.stringify(response_json));
+        storeSearchResult(response_json)
         navigate("/searchresult");
         speakText(response_json.summary);
         setChatContent(response_json.summary);
@@ -218,14 +221,14 @@ export default function Chatbot() {
         // Slice the ADD_TODO command and get the title
         const title = response.replace("ADD_TODO", "").trim();
         console.log(title); // This will give you the remaining part of the response after removing "ADD_TODO"
-        add_todo(title)
-        return
+        add_todo(title);
+        return;
       }
 
-      if(response.toLowerCase().indexOf("hire") > -1){
+      if (response.toLowerCase().indexOf("hire") > -1) {
         const care_giver_id = response.replace("HIRE", "").trim();
         console.log(care_giver_id); // This will give you the remaining part of the response after removing "ADD_TODO"
-        hire_caregiver(care_giver_id)
+        hire_caregiver(care_giver_id);
       }
 
       const parts = response.split(" ");
