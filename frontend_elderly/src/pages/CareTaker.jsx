@@ -122,7 +122,7 @@ const CareTaker = () => {
 
         <div className="min-h-screen flex flex-col bg-gray-50">
             <Navbar />
-            <div className="container mx-auto px-4 py-8">
+            <div className="px-4 py-8">
                 <h1 className="text-3xl font-semibold text-center text-gray-800 mb-8">Our Caretakers</h1>
 
                 {/* Updated responsive grid structure for caretakers */}
