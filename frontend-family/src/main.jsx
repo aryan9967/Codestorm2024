@@ -1,10 +1,21 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import App from './App.jsx'
 import './index.css'
+import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom'
+import Dashboard from './pages/Dashboard.jsx'
+import Layout from './Layout.jsx'
+import { HeartChart } from './components/LineChart/HeartChart'
+
+const router = createBrowserRouter(createRoutesFromElements(
+  <Route path='/' element={<Layout />}>
+    <Route index element={<Dashboard />} /> {/* Corrected this line */}
+    <Route path='dashboard' element={<Dashboard />} />
+    <Route path='heart' element={<HeartChart />} />
+  </Route>
+))
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </StrictMode>,
 )
