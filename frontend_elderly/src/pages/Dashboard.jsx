@@ -77,9 +77,9 @@ export default function Dashboard() {
   };
   
   const [people, setPeople] = useState([
-    { id: 1, name: 'Alice Johnson', avatar: '/api/placeholder/100/100', selected: false },
-    { id: 2, name: 'Bob Smith', avatar: '/api/placeholder/100/100', selected: false },
-    { id: 3, name: 'Carol Williams', avatar: '/api/placeholder/100/100', selected: false },
+    { id: 1, name: 'Atharva Yadav', avatar: '/api/placeholder/100/100', selected: false },
+    { id: 2, name: 'Om Pawaskar', avatar: '/api/placeholder/100/100', selected: false },
+    { id: 3, name: 'Ayush Sharma', avatar: '/api/placeholder/100/100', selected: false },
   ]);
 
   const [showAlert, setShowAlert] = useState(false);
@@ -203,9 +203,7 @@ export default function Dashboard() {
                 </CardHeader>
                 <CardContent>
                   <div className="text-2xl font-bold">60</div>
-                  <p className="text-xs text-muted-foreground">
-                    5%+ from previous week
-                  </p>
+                  
                 </CardContent>
               </Card>
               <Card className="bg-gray-100 shadow-md">
@@ -215,9 +213,7 @@ export default function Dashboard() {
                 </CardHeader>
                 <CardContent>
                   <div className="text-2xl font-bold">17.8</div>
-                  <p className="text-xs text-muted-foreground">
-                    +20.1% from yesterday
-                  </p>
+                  
                 </CardContent>
               </Card>
               <Card className="bg-gray-100 shadow-md">
@@ -227,9 +223,7 @@ export default function Dashboard() {
                 </CardHeader>
                 <CardContent>
                   <div className="text-2xl font-bold">98.2</div>
-                  <p className="text-xs text-muted-foreground">
-                    -14% from last week
-                  </p>
+                  
                 </CardContent>
               </Card>
 

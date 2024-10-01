@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { Button } from './ui/button'
 
+import logo from "../assets/logo1e.png"
 
 function Navbar() {
 
@@ -11,8 +12,8 @@ function Navbar() {
                 <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
                     <Link to="/" className="flex items-center">
                         <img
-                            src="/logo1c.png"
-                            className="mr-3 w-12 h-12"
+                            src={logo}
+                            className="mr-3 h-8"
                             alt="Logo"
                         />
                     </Link>

@@ -2,7 +2,7 @@ import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import "../styles/homepage.css";
 // import logo from "../assets/urbanlogo-removebg-preview.png";
-import logo from "../assets/logo1e.png";
+import logo from "../assets/logo1e copy.png";
 import { Button } from "./ui/button";
 import { Heart, User, Phone } from "lucide-react";
 import axios from "axios";
@@ -24,7 +24,7 @@ const Navbar = () => {
         <img
           src={logo}
           alt="Logo"
-          className="h-[80px] w-[120px] mr-7 ml-5 mt-0.5"
+          className="h-8 w-[120px] mr-7 ml-5 mt-0.5"
         />
 
         {/* Mobile Toggle Button */}
@@ -91,7 +91,7 @@ const Navbar = () => {
           {/* Search Form */}
 
           <Button
-            className="bg-red-400 hover:bg-red-600 px-4"
+            className="bg-red-500 hover:bg-red-600 px-4 mr-6"
             onClick={handle_emergency}
           >
             SOS
