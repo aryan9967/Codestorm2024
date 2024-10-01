@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, DollarSign, BriefcaseIcon, Heart } from 'lucide-react';
+import { Mail, Phone, DollarSign, BriefcaseIcon, Heart, IndianRupee } from 'lucide-react';
 import caretakerprofile1 from '../assets/caretaker_profile12.jpg'
 
 export default function CareTakerCard({ caregiver }) {
@@ -32,8 +32,8 @@ export default function CareTakerCard({ caregiver }) {
                             <span className="text-gray-600 text-xs">{caregiver?.experience} years experience</span>
                         </div>
                         <div className="flex items-center">
-                            <DollarSign className="w-5 h-5 mr-2 text-purple-500" />
-                            <span className="text-gray-600 text-xs">${caregiver?.chargesPerDay}/day</span>
+                            <IndianRupee className="w-5 h-5 mr-2 text-purple-500" />
+                            <span className="text-gray-600 text-xs">₹{caregiver?.chargesPerDay}/day</span>
                         </div>
                     </div>
                 </div>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Phone, Calendar, Mail, DollarSign, BriefcaseIcon } from 'lucide-react';
+import { Phone, Calendar, Mail, DollarSign, BriefcaseIcon, IndianRupee } from 'lucide-react';
 import doctor_profile1 from '../assets/doctor_profile14.jpg';
 
 const DoctorProfileCard = ({ doctor }) => {
@@ -31,8 +31,8 @@ const DoctorProfileCard = ({ doctor }) => {
                             <span className="text-gray-600 text-xs">{doctor?.experience} years experience</span>
                         </div>
                         <div className="flex items-center">
-                            <DollarSign className="w-5 h-5 mr-2 text-purple-500" />
-                            <span className="text-gray-600 text-xs">${doctor?.chargesPerDay}/day</span>
+                            <IndianRupee className="w-5 h-5 mr-2 text-purple-500" />
+                            <span className="text-gray-600 text-xs">₹{doctor?.chargesPerDay}/day</span>
                         </div>
                     </div>
                 </div>
