@@ -5,12 +5,14 @@ import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } 
 import Dashboard from './pages/Dashboard.jsx'
 import Layout from './Layout.jsx'
 import HeartChart  from './components/LineChart/HeartChart'
+import Tracking from './pages/Tracking'
 
 const router = createBrowserRouter(createRoutesFromElements(
   <Route path='/' element={<Layout />}>
     <Route index element={<Dashboard />} /> {/* Corrected this line */}
     <Route path='dashboard' element={<Dashboard />} />
     <Route path='heart' element={<HeartChart />} />
+    <Route path='tracking' element={<Tracking />} />
   </Route>
 ))
 

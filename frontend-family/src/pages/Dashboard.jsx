@@ -120,7 +120,7 @@ import { useEffect, useState } from "react";
                         <TableHead>Doctor</TableHead>
                         <TableHead>Date</TableHead>
                         <TableHead>Time</TableHead>
-                        <TableHead className="text-right">Status</TableHead>
+                        {/* <TableHead className="text-right">Status</TableHead> */}
                       </TableRow>
                     </TableHeader>
                     <TableBody>
@@ -144,9 +144,7 @@ import { useEffect, useState } from "react";
                               {appointment.time}
                             </div>
                           </TableCell>
-                          <TableCell className="text-right">
-                            <Switch />
-                          </TableCell>
+                          
                         </TableRow>
                       ))}
                     </TableBody>
