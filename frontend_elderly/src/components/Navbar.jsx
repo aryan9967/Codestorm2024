@@ -4,9 +4,8 @@ import "../styles/homepage.css";
 // import logo from "../assets/urbanlogo-removebg-preview.png";
 import logo from "../assets/logo1e.png";
 import { Button } from "./ui/button";
-import { Heart, User, Phone } from "lucide-react"
+import { Heart, User, Phone } from "lucide-react";
 import axios from "axios";
-
 
 const Navbar = () => {
   async function handle_emergency() {
@@ -15,14 +14,18 @@ const Navbar = () => {
     const { data } = await axios.post("http://localhost:3000/send-SOS", {
       location: location.current,
     });
-    console.log(data)
+    console.log(data);
   }
 
   return (
     <nav className="bg-[#fff] h-[10vh] shadow-lg border-b">
       <div className="container flex items-center justify-between h-full">
         {/* Logo */}
-        <img src={logo} alt="Logo" className="h-[80px] w-[120px] mr-7 ml-2 mt-0.5" />
+        <img
+          src={logo}
+          alt="Logo"
+          className="h-[80px] w-[120px] mr-7 ml-5 mt-0.5"
+        />
 
         {/* Mobile Toggle Button */}
         <button
@@ -79,19 +82,20 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink className="nav-link mr-3 text-black" to="/medical">
-                Medical History
+              <NavLink className="nav-link mr-3 text-black" to="/connect">
+                Medical Records
               </NavLink>
             </li>
           </ul>
 
           {/* Search Form */}
 
-        <Button className = "bg-red-400 hover:bg-red-600 px-4" onClick={handle_emergency}>
-
-          SOS
-        </Button>
-
+          <Button
+            className="bg-red-400 hover:bg-red-600 px-4"
+            onClick={handle_emergency}
+          >
+            SOS
+          </Button>
         </div>
       </div>
     </nav>

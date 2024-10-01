@@ -36,7 +36,7 @@ function App() {
       <Route path="/medical" element={<MedicalHistoryPage />}></Route>
       <Route path="/caregiver" element={<Caregiver />}></Route>
       <Route path="/doctor" element={<Doctor />}></Route>
-      <Route path="/connect" element={<CallPage />}></Route>
+      {/* <Route path="/connect" element={<CallPage />}></Route> */}
     </Routes>
   );
 }

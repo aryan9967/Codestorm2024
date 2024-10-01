@@ -300,8 +300,8 @@ export default function Chatbot() {
           caregiverpage: "/caregiver",
           doctor: "/doctor",
           doctorpage: "/doctor",
-          medicalrecord: "/medical",
-          medicalrecordpage: "/medical",
+          medicalrecords: "/medical",
+          medicalrecordspage: "/medical",
         };
 
         // Check if the normalized page name exists in the mapping
