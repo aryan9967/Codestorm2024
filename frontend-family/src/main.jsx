@@ -4,7 +4,7 @@ import './index.css'
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom'
 import Dashboard from './pages/Dashboard.jsx'
 import Layout from './Layout.jsx'
-import { HeartChart } from './components/LineChart/HeartChart'
+import HeartChart  from './components/LineChart/HeartChart'
 
 const router = createBrowserRouter(createRoutesFromElements(
   <Route path='/' element={<Layout />}>

@@ -79,22 +79,19 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink className="nav-link mr-3 text-black" to="/connect">
-                Connect
+              <NavLink className="nav-link mr-3 text-black" to="/medical">
+                Medical History
               </NavLink>
             </li>
           </ul>
 
           {/* Search Form */}
-<<<<<<< Updated upstream
-          <Button className="bg-red-400 hover:bg-red-600 px-4">
-            SOS
-          </Button>
-=======
+
         <Button className = "bg-red-400 hover:bg-red-600 px-4" onClick={handle_emergency}>
+
           SOS
         </Button>
->>>>>>> Stashed changes
+
         </div>
       </div>
     </nav>

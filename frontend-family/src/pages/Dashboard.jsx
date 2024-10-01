@@ -28,15 +28,25 @@ import {
   import { Phone, Mail, Video, PhoneCall } from 'lucide-react';
   import { Button } from "@/components/ui/button";
   import { AlertDialog, AlertDialogAction, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle } from '@/components/ui/alert-dialog';
+import HeartRateChart from "@/components/LineChart/HeartChart";
+import { useEffect, useState } from "react";
   
   
   export default function Dashboard() {
-  
+    const [appointments,setAppointments] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:3000/upcoming_appointments').then((res) => {
+           return res.json();
+        }).then((result) => {
+            setAppointments(result.upcoming_appointments)
+        }).catch((err) => {
+            console.log(err);            
+        })
+    },[appointments])
+
     return (
       <div className="main_container">
-        <div className="navbar_container">
-          <Navbar />
-        </div>
         <div className="main_screen">
           <div className="flex justify-center h-full">
             <main className="w-[75%]  flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-8">
@@ -95,23 +105,55 @@ import {
               <div className="grid gap-4 md:gap-8 lg:grid-cols-2 xl:grid-cols-2">
   
   
-                <Card className="w-full max-w-2xl mx-auto">
-                  <CardHeader className="bg-gray-100">
-                    <CardTitle className="text-2xl font-bold">Todo List</CardTitle>
-                    <CardDescription className="text-gray-500">Keep track of your tasks and mark them as completed.</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <Table>
-                      <TableHeader>
-                        <TableRow>
-                          <TableHead className="w-[50%]">Task</TableHead>
-                          <TableHead>Status</TableHead>
-                          <TableHead className="text-right">Toggle</TableHead>
+              <Card className="w-full max-w-2xl mx-auto">
+                <CardHeader className="bg-gray-100">
+                    <div className="flex justify-between items-center">
+                  <CardTitle className="text-2xl font-bold">Appointments</CardTitle>
+                  <Button className = "border-2 border-purple-400 bg-white text-purple-800 hover:text-white hover:bg-purple-400">Add New</Button>
+                  </div>
+                  <CardDescription className="text-gray-500">Keep track of appointments of your loved ones.</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <Table>
+                    <TableHeader>
+                      <TableRow>
+                        <TableHead>Doctor</TableHead>
+                        <TableHead>Date</TableHead>
+                        <TableHead>Time</TableHead>
+                        <TableHead className="text-right">Status</TableHead>
+                      </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                      {appointments.map((appointment) => (
+                        <TableRow key={appointment.id}>
+                          <TableCell className="font-medium">
+                            <div className="flex items-center">
+                              <User className="mr-2 h-4 w-4" />
+                              {appointment.doctor_name}
+                            </div>
+                          </TableCell>
+                          <TableCell>
+                            <div className="flex items-center">
+                              <Calendar className="mr-2 h-4 w-4" />
+                              {appointment.date}
+                            </div>
+                          </TableCell>
+                          <TableCell>
+                            <div className="flex items-center">
+                              <Clock className="mr-2 h-4 w-4" />
+                              {appointment.time}
+                            </div>
+                          </TableCell>
+                          <TableCell className="text-right">
+                            <Switch />
+                          </TableCell>
                         </TableRow>
-                      </TableHeader>                        
-                    </Table>
-                  </CardContent>
-                </Card>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </CardContent>
+              </Card>
+                <HeartRateChart />
                
                 
                 

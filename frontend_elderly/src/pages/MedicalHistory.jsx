@@ -72,9 +72,18 @@ const MedicalHistoryPage = () => {
 
   return (
     <>
+    <div className='main_container'>
+
+    <div className='navbar_container'>
    <Navbar />
-    <div className="min-h-screen bg-gray-100 p-6">
-      <h1 className="text-3xl font-bold text-gray-800 mb-6">Medical History Tracker</h1>
+   </div>
+    <div className="bg-gray-100 p-6 main_screen">
+    <div className="max-w-4xl mx-auto text-center mb-12">
+            <h1 className="text-3xl font-bold text-gray-900 mb-4 ">
+              Medical History
+            </h1>
+            <div className="w-24 h-1 bg-purple-500 mx-auto mb-4"></div>
+      </div>
       <div className="flex gap-6">
         {/* Left side - Table */}
         <div className="w-1/2 bg-white rounded-lg shadow-md overflow-hidden">
@@ -224,6 +233,7 @@ const MedicalHistoryPage = () => {
           </Card>
         </div>
       </div>
+    </div>
     </div>
     </>
   );
