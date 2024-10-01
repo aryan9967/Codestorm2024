@@ -68,14 +68,14 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink className="nav-link mr-3 text-black" to="/connect">
-                Connect
+              <NavLink className="nav-link mr-3 text-black" to="/medical">
+                Medical History
               </NavLink>
             </li>
           </ul>
 
           {/* Search Form */}
-        <Button className = "bg-red-400 hover:bg-red-600 px-4">
+        <Button className = "bg-red-600 hover:bg-red-400 mr-8">
           SOS
         </Button>
         </div>

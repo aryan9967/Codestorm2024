@@ -22,7 +22,8 @@ export const MedicationProvider = ({ children }) => {
         name: medication.name,
         reminderTime1: medication.reminder_time1,
         reminderTime2: medication.reminder_time2,
-        frequency: medication.frequency
+        frequency: medication.frequency,
+        isChecked: false
       })));
     } catch (error) {
       console.error('Failed to fetch medications:', error);
@@ -43,7 +44,8 @@ export const MedicationProvider = ({ children }) => {
         name: newMedication.name,
         reminderTime1: newMedication.reminder_time1,
         reminderTime2: newMedication.reminder_time2,
-        frequency: newMedication.frequency
+        frequency: newMedication.frequency,
+        isChecked: false
       }]);
     } catch (error) {
       console.error('Failed to add medication:', error);
@@ -55,7 +57,7 @@ export const MedicationProvider = ({ children }) => {
   }, []);
 
   return (
-    <MedicationContext.Provider value={{ medications, addMedication }}>
+    <MedicationContext.Provider value={{ medications, addMedication ,setMedications }}>
       {children}
     </MedicationContext.Provider>
   );

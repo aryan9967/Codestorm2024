@@ -18,10 +18,14 @@ const HeartRateChart = () => {
   useEffect(() => {
     const fetchHeartRateData = async () => {
       const ACCESS_TOKEN = import.meta.env.VITE_FITBIT_ACCESS_TOKEN;
+      console.log(ACCESS_TOKEN);
+      
       const url = 'https://api.fitbit.com/1/user/-/activities/heart/date/today/7d.json';
-      const headers = { Authorization: `Bearer ${ACCESS_TOKEN}` };
+      const headers = { Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyM1JTMlYiLCJzdWIiOiJCWTVSRkIiLCJpc3MiOiJGaXRiaXQiLCJ0eXAiOiJhY2Nlc3NfdG9rZW4iLCJzY29wZXMiOiJyc29jIHJzZXQgcm94eSBycHJvIHJudXQgcnNsZSByYWN0IHJyZXMgcmxvYyByd2VpIHJociBydGVtIiwiZXhwIjoxNzI3NzY3MzQzLCJpYXQiOjE3Mjc3Mzg1NDN9.A_YPjuSv2PemA7aBrZ0uQtthK2dhfLfwmvmhgEGf5u0` };
 
       try {
+        console.log("Hello");
+        
         const response = await axios.get(url, { headers });
         if (response.status === 200) {
           const formattedData = response.data['activities-heart'].map(item => ({
@@ -45,7 +49,7 @@ const HeartRateChart = () => {
   }
 
   return (
-    <Card className="w-full">
+    <Card className="w-full shadow-lg">
       <CardHeader>
         <CardTitle>Heart Rate Analysis</CardTitle>
         <CardDescription>Last 7 Days</CardDescription>
@@ -63,8 +67,8 @@ const HeartRateChart = () => {
       </CardContent>
       <CardFooter>
         <div className="flex items-center">
-          <TrendingUp className="mr-2 h-4 w-4 text-muted-foreground" />
-          <span>Average heart rate trend for the last 7 days</span>
+          <TrendingUp className="mr-2 h-4 w-4 text-muted-foreground text-purple-500" />
+          <span className='text-purple-500'>Average heart rate trend for the last 7 days</span>
         </div>
       </CardFooter>
     </Card>

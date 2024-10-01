@@ -44,10 +44,38 @@ import { AlertDialog, AlertDialogAction, AlertDialogContent, AlertDialogDescript
 
 export default function Dashboard() {
 
-  const { todos } = useTodo();
+  const { todos , setTodos } = useTodo();
   const { appointments } = useAppointment()
-  const { medications } = useMedication();
+  const { medications , setMedications } = useMedication();
 
+  const toggleTodo = (id) => {
+    setTodos((prevTodos) => 
+      prevTodos.map((todo) => {
+        if (todo.id === id) {
+          return {
+            ...todo,
+            isCompleted: !todo.isCompleted  // Toggle the completed status
+          };
+        }
+        return todo;  // Return the todo as is if id doesn't match
+      })
+    );
+  };
+  
+  const handleMedToggle = (id) => {
+    setMedications((prevmeds) => 
+      prevmeds.map((med) => {
+        if (med.id === id) {
+          return { 
+            ...med, 
+            isChecked: !med.isChecked 
+          };
+        }
+        return med;
+      })
+    );
+  };
+  
   const [people, setPeople] = useState([
     { id: 1, name: 'Alice Johnson', avatar: '/api/placeholder/100/100', selected: false },
     { id: 2, name: 'Bob Smith', avatar: '/api/placeholder/100/100', selected: false },
@@ -81,10 +109,10 @@ export default function Dashboard() {
 
   const selectedPeople = people.filter(person => person.selected);
 
-  const [isMedChecked, setIsMedChecked] = useState(false); // Local state to control checkbox
+  const [isChecked, setisChecked] = useState(false); // Local state to control checkbox
 
-  const handleToggle = () => {
-    setIsMedChecked(prev => !prev); // Toggle local state
+  const handleToggle = (medicationId) => {
+    
   };
 
   // Sort appointments by date, latest first
@@ -460,6 +488,7 @@ export default function Dashboard() {
                   ${medication.id % 2 === 0 ? 'bg-purple-50' : 'bg-white'} 
                   hover:bg-purple-100 transition-colors
                   ${activeAlert === medication.id ? 'animate-pulse bg-yellow-200' : ''}
+                  
                 `}
                       >
                         <TableCell className="py-4">
@@ -476,12 +505,12 @@ export default function Dashboard() {
                         </TableCell>
                         <TableCell className="text-right">
                           <div className="flex items-center justify-center space-x-2 pr-2">
-                            <span className={`text-sm ${isMedChecked ? 'text-green-500' : 'text-red-500'}`}>
-                              {isMedChecked ? 'Taken' : 'Not taken'}
+                            <span className={`text-sm ${medication.isChecked ? 'text-green-500' : 'text-red-500'}`}>
+                              {medication.isChecked ? 'Taken' : 'Not taken'}
                             </span>
                             <Checkbox
-                              checked={isMedChecked}
-                              onCheckedChange={handleToggle} // Toggle only when clicked
+                              checked={medication.isChecked}
+                              onCheckedChange={()=>handleMedToggle(medication.id)} // Toggle only when clicked
                               className="data-[state=checked]:bg-green-500 data-[state=checked]:border-green-500"
                             />
                           </div>
