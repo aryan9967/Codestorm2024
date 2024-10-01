@@ -5,9 +5,19 @@ import "../styles/homepage.css";
 import logo from "../assets/logo1e.png";
 import { Button } from "./ui/button";
 import { Heart, User, Phone } from "lucide-react"
+import axios from "axios";
 
 
 const Navbar = () => {
+  async function handle_emergency() {
+    console.log("emergency detected");
+    console.log(location.current);
+    const { data } = await axios.post("http://localhost:3000/send-SOS", {
+      location: location.current,
+    });
+    console.log(data)
+  }
+
   return (
     <nav className="bg-[#fff] h-[10vh] shadow-lg border-b">
       <div className="container flex items-center justify-between h-full">
@@ -76,9 +86,15 @@ const Navbar = () => {
           </ul>
 
           {/* Search Form */}
+<<<<<<< Updated upstream
           <Button className="bg-red-400 hover:bg-red-600 px-4">
             SOS
           </Button>
+=======
+        <Button className = "bg-red-400 hover:bg-red-600 px-4" onClick={handle_emergency}>
+          SOS
+        </Button>
+>>>>>>> Stashed changes
         </div>
       </div>
     </nav>

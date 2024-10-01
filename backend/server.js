@@ -163,12 +163,12 @@ const todo = {
     "todo": [
         {
             "id": "1",
-            "title": "Complete React project",
+            "title": "Work out",
             "status": true
         },
         {
             "id": "2",
-            "title": "Review code",
+            "title": "Clean room",
             "status": false
         },
     ]
@@ -184,12 +184,26 @@ const medication = {
             "frequency": "1"
         },
         {
-            "id": "1",
+            "id": "2",
             "name": "Metformin",
             "reminder_time1": "08:00 AM",
             "reminder_time2": "08:00 pM",
             "frequency": "2"
         },
+        {
+            "id": "3",
+            "name": "Ibuprofen",
+            "reminder_time1": "09:00 AM",
+            "reminder_time2": false,
+            "frequency": "1"
+        },
+        {
+            "id": "4",
+            "name": "Lisinopril",
+            "reminder_time1": "07:30 AM",
+            "reminder_time2": "07:30 PM",
+            "frequency": "2"
+        }
 
     ]
 }
@@ -451,7 +465,7 @@ io.on('connection', (socket) => {
 
 Users can browse products available at the marketplace, search for caregivers and doctors on the platform, hire caregivers, and book appointments with doctors.
 
-When a user wants to book a caregiver, emit the command HIRE "caregiver_id" directly without asking any follow-up questions.
+When a user wants to book a caregiver, emit the command HIRE "caregiver_id" directly without asking any follow-up questions. Strictly dont ask follow up questions for hiring caregiver.
 
 For booking appointments, ask follow-up questions regarding the booking date and time. Once the user answers all the questions, respond in JSON in the following format:
 {
@@ -619,16 +633,65 @@ const authToken = '7f10396dfc57d2bb66b64cd05d2db685';
 const client = twilio(accountSid, authToken);
 
 app.post('/send-message', (req, res) => {
-  const { to = "+919321543686", body = "https://nextjs-zegocloud-uikits1tm.vercel.app/?roomID=1234';" } = req.body;
+    const { to = "+919321543686", body = "https://nextjs-zegocloud-uikits-h33s.vercel.app/';" } = req.body;
 
-  client.messages
-    .create({
-      from: 'whatsapp:+14155238886', // Twilio WhatsApp number
-      body,
-      to: `whatsapp:${to}`, // Recipient's WhatsApp number
-    })
-    .then((message) => res.json({ sid: message.sid }))
-    .catch((error) => res.status(500).json({ error: error.message }));
+    client.messages
+        .create({
+            from: 'whatsapp:+14155238886', // Twilio WhatsApp number
+            body,
+            to: `whatsapp:${to}`, // Recipient's WhatsApp number
+        })
+        .then((message) => res.json({ sid: message.sid }))
+        .catch((error) => res.status(500).json({ error: error.message }));
+});
+
+//reverse geocoding
+const reverseGeocode = async (latitude, longitude) => {
+    const url = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&zoom=18&addressdetails=1`;
+  
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error('Error during reverse geocoding:', error);
+      return null;
+    }
+  };
+
+app.post('/send-SOS', (req, res) => {
+    const sendEmergencyMessageSMS = async () => {
+        const location = req.body.location
+        console.log(location)
+        const data = await reverseGeocode(location.latitude, location.longitude)
+        console.log(data)
+        const messageBody = `Mr. Thomson is in an emergency. Location linking road, Bandra west`;
+
+        client.messages
+            .create({
+                from: '+18433105469', // Twilio phone number
+                to: '+919321543686',  // Recipient's phone number
+                body: messageBody // The emergency message
+            })
+            .then(message => console.log(message.sid))
+            .catch(err => console.error(err));
+    };
+
+    const sendEmergencyMessage = () => {
+        const messageBody = 'Mr.Thomson is in an emergency at.'
+
+        client.messages
+            .create({
+                from: 'whatsapp:+14155238886', // Twilio WhatsApp number
+                body: messageBody, // Custom message body
+                to: 'whatsapp:+919321543686' // Recipient's WhatsApp number
+            })
+            .then(message => console.log(message.sid ))
+            .catch(err => console.error(err));
+    };
+    sendEmergencyMessage()
+    sendEmergencyMessageSMS()
+    res.status(200).send("SOS message is sent")
 });
 
 app.get("/cart", (req, res) => {
@@ -740,7 +803,8 @@ app.post("/add_todo", (req, res) => {
 app.post("/hire_caregiver", (req, res) => {
     console.log("Hiring caregiver", req.body.care_giver_id)
     const id = req.body.care_giver_id
-    const caregiver = caregivers.caregiver.find(caregiver => caregiver.id === id);
+    const caregiver = caregivers.caregiver.find(caregiver => caregiver.id == id);
+    console.log(caregiver)
     if (caregiver) {
         console.log(caregiver);
         hired_caregiver.caregiver.push(caregiver)
