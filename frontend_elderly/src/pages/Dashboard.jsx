@@ -97,7 +97,7 @@ export default function Dashboard() {
         method: "POST"
       }).then((res) => {
         console.log(res)
-        const url = 'https://nextjs-zegocloud-uikits1tm.vercel.app';
+        const url = 'https://nextjs-zegocloud-uikits-h33s.vercel.app/';
         window.open(url, '_blank')
       }).catch((err) => {
         console.log(err);
@@ -183,11 +183,11 @@ export default function Dashboard() {
       <div className="navbar_container">
         <Navbar />
       </div>
-      <div className="main_screen">
+      <div className="main_screen md:p-6">
         <div className="flex justify-center h-full">
-          <main className="w-[75%]  flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-8">
+          <main className="w-[75%]  flex flex-1 flex-col gap-3 p-4 md:gap-6 ">
             <div className="flex justify-between items-center">
-              <h1 className="font-bold text-3xl font-serif">Overview</h1>
+              <h1 className="font-bold text-2xl">Overview</h1>
               {/* <h1 className="font-bold text-3xl font-serif">Medications</h1> */}
             </div>
             <div className="grid gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-3">
@@ -235,7 +235,7 @@ export default function Dashboard() {
 
             </div>
             <div className="flex justify-between items-center">
-              <h1 className="font-bold text-3xl font-serif">Reminders</h1>
+              <h1 className="font-bold text-2xl">Reminders</h1>
               {/* <h1 className="font-bold text-3xl font-serif">Medications</h1> */}
             </div>
             <div className="grid gap-4 md:gap-8 lg:grid-cols-2 xl:grid-cols-2">
@@ -330,7 +330,7 @@ export default function Dashboard() {
                   </Table>
                 </CardContent>
               </Card>
-              <Card className="w-full max-w-2xl mx-auto shadow-lg col-span-1">
+              <Card className="w-full max-w-2xl mx-auto shadow-lg col-span-1 mb-6">
                 <CardHeader className="bg-gray-100 text-black">
                   <CardTitle className="text-2xl font-bold">Hired Caregivers</CardTitle>
                   <CardDescription className="text-gray-600">Your trusted care providers</CardDescription>
@@ -380,7 +380,7 @@ export default function Dashboard() {
                   </Table>
                 </CardContent>
               </Card>
-              <Card className="w-full max-w-2xl mx-auto shadow-lg">
+              <Card className="w-full max-w-2xl mx-auto shadow-lg mb-6">
                 <CardHeader className="bg-gray-100 text-black">
                   <CardTitle className="text-2xl font-bold">Video Call</CardTitle>
                   <CardDescription className="text-gray-600">Select participants and start your call</CardDescription>
@@ -463,7 +463,7 @@ export default function Dashboard() {
           </main>
           <div className="w-[25%] h-full flex flex-col justify-start items-start mt-8 py-4 mr-4">
             <div className="mb-4">
-              <h1 className="font-bold text-3xl font-serif">Medications</h1>
+              <h1 className="font-bold text-2xl">Medications</h1>
               {/* <h1 className="font-bold text-3xl font-serif">Medications</h1> */}
             </div>
             <Card className="w-full max-w-2xl mx-auto bg-purple-100 shadow-lg rounded-md">

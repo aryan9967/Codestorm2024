@@ -16,10 +16,34 @@ export default function Chatbot() {
   const navigate = useNavigate();
   const [chatVisibility, setChatVisibility] = useState(false);
   const { storeSearchResult } = useSearchResult();
+  const location = useRef();
   const [chatContent, setChatContent] = useState(
     "Hello, I am CareMate, your personal care taking assistant. How may I assist you?"
   );
   // Update the ref whenever transcript1 changes
+  useEffect(() => {
+    async function getCoordinates() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            console.log(position.coords.latitude, position.coords.longitude);
+            location.current = {
+              latitude: position.coords.latitude,
+              longitude: position.coords.longitude,
+            };
+          },
+          (err) => {
+            console.error(err.message);
+          }
+        );
+      } else {
+        console.error("Geolocation is not supported by this browser.");
+      }
+    }
+
+    getCoordinates();
+  }, []);
+
   useEffect(() => {
     transcriptRef.current = transcript1;
   }, [transcript1]);
@@ -146,6 +170,11 @@ export default function Chatbot() {
 
   async function handle_emergency() {
     console.log("emergency detected");
+    console.log(location.current);
+    const { data } = await axios.post("http://localhost:3000/send-SOS", {
+      location: location.current,
+    });
+    console.log(data);
     speakText("Contacted your family member and nearby emergency services");
   }
 
@@ -204,7 +233,7 @@ export default function Chatbot() {
         const response_json = JSON.parse(json_extract);
         console.log(response_json);
         localStorage.setItem("search_result", JSON.stringify(response_json));
-        storeSearchResult(response_json)
+        storeSearchResult(response_json);
         navigate("/searchresult");
         speakText(response_json.summary);
         setChatContent(response_json.summary);
@@ -226,12 +255,12 @@ export default function Chatbot() {
       }
 
       if (response.toLowerCase().indexOf("hire") > -1) {
-        const lower_case_response = response.toLowerCase()
-        console.log(lower_case_response)
+        const lower_case_response = response.toLowerCase();
+        console.log(lower_case_response);
         const care_giver_id = lower_case_response.replace("hire", "").trim();
         console.log(care_giver_id); // This will give you the remaining part of the response after removing "ADD_TODO"
-        hire_caregiver(care_giver_id)
-        return
+        hire_caregiver(care_giver_id);
+        return;
       }
 
       const parts = response.split(" ");
@@ -271,8 +300,8 @@ export default function Chatbot() {
           caregiverpage: "/caregiver",
           doctor: "/doctor",
           doctorpage: "/doctor",
-          connect: "/connect",
-          connectpage: "/connect",
+          medicalrecord: "/medical",
+          medicalrecordpage: "/medical",
         };
 
         // Check if the normalized page name exists in the mapping
