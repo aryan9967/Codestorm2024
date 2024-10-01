@@ -1,7 +1,8 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import "../styles/homepage.css";
-import logo from "../assets/urbanlogo-removebg-preview.png";
+// import logo from "../assets/urbanlogo-removebg-preview.png";
+import logo from "../assets/logo1e.png";
 import { Button } from "./ui/button";
 import { Heart, User, Phone } from "lucide-react"
 
@@ -11,7 +12,7 @@ const Navbar = () => {
     <nav className="bg-[#fff] h-[10vh] shadow-lg border-b">
       <div className="container flex items-center justify-between h-full">
         {/* Logo */}
-        <img src={logo} alt="Logo" className="h-[35px] w-[120px] mr-7" />
+        <img src={logo} alt="Logo" className="h-[80px] w-[120px] mr-7 ml-2 mt-0.5" />
 
         {/* Mobile Toggle Button */}
         <button
@@ -75,9 +76,9 @@ const Navbar = () => {
           </ul>
 
           {/* Search Form */}
-        <Button className = "bg-red-400 hover:bg-red-600 px-4">
-          SOS
-        </Button>
+          <Button className="bg-red-400 hover:bg-red-600 px-4">
+            SOS
+          </Button>
         </div>
       </div>
     </nav>
