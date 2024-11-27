@@ -82,7 +82,7 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink className="nav-link mr-3 text-black" to="/connect">
+              <NavLink className="nav-link mr-3 text-black" to="/medical">
                 Medical Records
               </NavLink>
             </li>
